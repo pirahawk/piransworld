@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Vertical alignment test</title>
-
     <style>
         html, body {
             width: 100%;
@@ -12,8 +10,18 @@
         .red {
             background-color: red;
             height: 400px;
-            width: 500px;
+            width: 400px;
+            display: table-cell;
+            vertical-align:middle;
+            text-align: center;
         }
+
+        img {
+            display:inline-block;
+            vertical-align:middle;
+            max-height:90px;
+        }
+
     </style>
 
 </head>
