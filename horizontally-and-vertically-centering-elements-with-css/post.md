@@ -116,4 +116,6 @@ max-height:90px;
 
 ![screen6](http://piransworld.blob.core.windows.net/blog-images/horizontally-and-vertically-centering-elements-with-css/screen6.PNG)
 
+Grab all completed examples from my [Github repo](https://github.com/pirahawk/piransworld/tree/master/horizontally-and-vertically-centering-elements-with-css)
+
 
