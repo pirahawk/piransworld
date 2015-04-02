@@ -1,4 +1,6 @@
 piransworld
 ===========
 
-Repo to store all code for my blog http://piransworld.wordpress.com/
+This is where I store all my blog posts & resources for my blog:
+
+ http://piransworld.wordpress.com/
