@@ -9,6 +9,14 @@ I noticed that WordPress officially supports writing posts in Markdown, and the 
 
 ![screen1](http://piransworld.blob.core.windows.net/blog-images/my-2-cents-on-making-blogging-easier/screen1.PNG)
 
+If you are a developer, WordPress offers some great features for [posting your source code](https://en.support.wordpress.com/code/posting-source-code/) in your blog. You automatically get syntax highlighting support for a number of languages aside other features like source code titles, linking, line highlighting, padding line numbers etc all of which make it a great platform for a developer's blog.
+
+[code language="csharp"]
+public void PrintName(string name){
+	Console.WriteLine("Hello " + name );
+}
+[/code]
+
 ## Create Blog posts using.. anything?
 Now that I have markdown support enabled, I find that I dont even need to write all my posts online using the browser. For example at the time of writing this post, I am simply using [Sublime](http://www.sublimetext.com/). It's free, has support for markdown syntax highlighting. But in reality you can use just about any text editor of your choice to write your blog posts. Theoretically I can write when I am online, offline, using my phone, in a terminal (using *Vi*). Sure you may want to keep referring to the markdown syntax reference guides if you are new to markdown and ocassionally preview your post before publishing it, but once you get profficient with its syntax, you should find your blogging productivity skyrocket. Heres a screen-shot of me writing this blog post:
 ![screen2](http://piransworld.blob.core.windows.net/blog-images/my-2-cents-on-making-blogging-easier/screen2.PNG)
@@ -20,5 +28,6 @@ For information on how to use Azure blob storage, refer to the [documentation](h
 
 ## Backing up your posts, resources etc
 So the final piece of this puzzle is being able to store & access all your posts and resources for future reference. Given that I am now creating and editing all my posts using markdown, I can literally use any modern day version control system to store, version and track all my posts and content. I just use Git & Github to backup all my posts. Using a simple directory structure to organize all my content by each post, I can now easily access and backup all my posts and external content easily. In future, should I want to move to a different blog engine, I can easily do so with a full history of all my posts securely available online. Head on over to my [Github](https://github.com/pirahawk/piransworld) repo to check out my setup.
+
 
 Happy blogging ;)
