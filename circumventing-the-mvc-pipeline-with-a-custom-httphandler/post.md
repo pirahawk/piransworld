@@ -165,3 +165,5 @@ Hence if everything is wired up correctly, we can now run the solution and navig
 ![screen1.PNG](http://piransworld.blob.core.windows.net/blog-images/circumventing-the-mvc-pipeline-with-a-custom-httphandler/screen1.PNG)
 
 Although our example is extremely contrived for the sake of simplicity, you should note that by electing to bypass the normal MVC execution pipeline, we have elected to forgo all the convenience and security features offered by the framework. Hence I do not recommend using this approach unless you have a pressing need/concern that the framework cannot cater for. If anything I hope it has helped shed more light on how the MVC processing pipeline is invoked.
+
+Feel free to download the source code for this example from [Github](https://github.com/pirahawk/piransworld/tree/master/circumventing-the-mvc-pipeline-with-a-custom-httphandler)
