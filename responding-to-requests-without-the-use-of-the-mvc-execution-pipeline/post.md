@@ -1,11 +1,11 @@
-If you are working with an ASP.Net MVC web application, you may run into a situation where you need to process and respond to certain incoming web requests outside of the normal MVC execution pipeline. If I am honest, I do not have a concrete use-case for why anyone would need to do this, as in my opinion the framework is be extensible enough to meet most of your needs. Hence only proceed if you have a very good reason (and please leave a comment below to share what it is).
+If you are working with an ASP.Net MVC web application, you may run into a situation where you need to process and respond to certain incoming web requests outside of the normal MVC execution pipeline. If I am honest, I do not have a concrete use-case for why anyone would need to do this, as in my opinion the framework should be extensible enough to meet most of your needs. Hence only proceed if you have a very good reason (and please leave a comment below to share what it is).
 
 For the sake of simplicity, I am going to illustrate this with a very simple example. Lets assume we have an existing MVC application where we want to identify a particular request that contains an `id` parameter, eg `/show-id?id=123`. We wish to respond without having to invoke the MVC execution pipeline, i.e. without the use of controllors, actions, views etc. We simply wish to extract the `id` and print it out as part of the response.
 
 ## Identify and intercept incoming requests to process
-We begin with a way to identify the incoming web requests that we will respond to. In an MVC application this is done by registering a route (i.e. an instance of [RouteBase](https://msdn.microsoft.com/en-us/library/system.web.routing.routebase%28v=vs.110%29.aspx)), which outlines the pattern of the url to match against, from which the framework can establish which controller/action to invoke. All your routes should be registered with the `RouteTable` on application startup.
+We begin with a way to identify the incoming web requests that we will respond to. In an MVC application this is done by registering a route (i.e. an instance of [RouteBase](https://msdn.microsoft.com/en-us/library/system.web.routing.routebase%28v=vs.110%29.aspx)), which outlines the pattern of the url to match against, from which the framework can establish which controller/action to invoke. All your routes should be registered with the [RouteTable](https://msdn.microsoft.com/en-us/library/system.web.routing.routetable%28v=vs.110%29.aspx) on application startup.
 
-We create an extension of the `RouteBase` class to allow us to identify the route. On every incoming web request, the `GetRouteData` method is called on the RouteBase class to evaluate if the route should provide the necessary artifacts to respond to the request. Here we are simply checking to ensure that the request path matches our expected route `/show-id`. Returning a non-null instance of the `RouteData` class indicates a match.
+We create an extension of the `RouteBase` class to allow us to identify the route. On every incoming web request, the `GetRouteData` method is called where the route is responsible for evaluating if it should respond to the request. We simply check to ensure that the request path matches our expected route `/show-id`. Returning a non-null instance of the [RouteData](https://msdn.microsoft.com/en-us/library/system.web.routing.routedata%28v=vs.110%29.aspx) class indicates a match.
 
 [code language="csharp" title="PrintIdRoute.cs"]
 public class PrintIdRoute : RouteBase
@@ -162,8 +162,8 @@ public void ProcessRequest(HttpContext context)
 [/code]
 
 Hence if everything is wired up correctly, we can now run the solution and navigate to the expected route we should see something similar to:
-![screen1.PNG](http://piransworld.blob.core.windows.net/blog-images/circumventing-the-mvc-pipeline-with-a-custom-httphandler/screen1.PNG)
+![screen1.PNG](http://piransworld.blob.core.windows.net/blog-images/responding-to-requests-without-the-use-of-the-mvc-execution-pipeline/screen1.PNG)
 
-Although our example is extremely contrived for the sake of simplicity, you should note that by electing to bypass the normal MVC execution pipeline, we have elected to forgo all the convenience and security features offered by the framework. Hence I do not recommend using this approach unless you have a pressing need/concern that the framework cannot cater for. If anything I hope it has helped shed more light on how the MVC processing pipeline is invoked.
+Although our example is extremely contrived for the sake of simplicity, you should note that by electing to bypass the normal MVC execution pipeline, we have elected to forgo all the convenience and security features offered by the MVC framework. Hence I do not recommend using this approach unless you have a pressing need/concern that the framework cannot cater for. If anything I hope it has helped shed more light on how the MVC processing pipeline is invoked.
 
-Feel free to download the source code for this example from [Github](https://github.com/pirahawk/piransworld/tree/master/circumventing-the-mvc-pipeline-with-a-custom-httphandler)
+Feel free to download the source code for this example from [Github](https://github.com/pirahawk/piransworld/tree/master/responding-to-requests-without-the-use-of-the-mvc-execution-pipeline)
