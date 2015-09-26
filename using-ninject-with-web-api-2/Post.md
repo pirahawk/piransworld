@@ -192,4 +192,4 @@ Content-Length: 32
 "Hello from the Message Service"
 ```
 
-Hope this saves you from having to go through the same pains that I did.
+Hope this saves you from having to go through the same pains that I did. Feel free to [grab my code from Github](https://github.com/pirahawk/piransworld/tree/master/using-ninject-with-web-api-2/src)
